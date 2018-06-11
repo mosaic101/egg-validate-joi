@@ -1,7 +1,7 @@
 {
   "name": "egg-validate-joi",
   "version": "1.0.0",
-  "description": "",
+  "description": "joi plugin for egg",
   "eggPlugin": {
     "name": "validateJoi"
   },
@@ -10,7 +10,9 @@
     "eggPlugin",
     "egg-plugin"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "joi": "^13.4.0"
+  },
   "devDependencies": {
     "autod": "^3.0.0",
     "autod-egg": "^1.0.0",
@@ -44,12 +46,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-validate-joi.git"
+    "url": "git+https://github.com/mosaic101/egg-validate-joi.git"
   },
   "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
+    "url": "https://github.com/mosaic101/egg-validate-joi.git/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-validate-joi#readme",
+  "homepage": "https://github.com/mosaic101/egg-validate-joi#readme",
   "author": "Jianjin Wu",
   "license": "MIT"
 }

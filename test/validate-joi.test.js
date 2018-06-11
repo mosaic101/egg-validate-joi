@@ -16,7 +16,7 @@ describe('test/validate-joi.test.js', () => {
 
   it('should GET /', () => {
     return app.httpRequest()
-      .get('/')
+      .get('/123456')
       .expect('hi, validateJoi')
       .expect(200);
   });

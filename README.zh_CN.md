@@ -69,7 +69,7 @@ exports.validateJoi = {
 
 ## 提问交流
 
-请到 [egg issues](https://github.com/eggjs/egg/issues) 异步交流。
+请到 [egg issues](https://github.com/mosaic101/egg-validate-joi/issues) 异步交流。
 
 ## License
 
