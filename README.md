@@ -1,5 +1,4 @@
 # egg-validate-joi
-doing ~~~
 
 [![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
@@ -46,13 +45,37 @@ exports.validateJoi = {
 ```js
 // {app_root}/config/config.default.js
 exports.validateJoi = {
+  options: {
+    abortEarly: false,
+  },
 };
 ```
 
 see [config/config.default.js](config/config.default.js) for more detail.
 
 ## Example
-
+```js
+// {app_root}/app/controller/home.js
+async show() {
+    const { ctx, app } = this;
+    const { Joi } = app;
+    try {
+      ctx.validateJoi({
+        params: {
+          id: Joi.string().guid({ version: [ 'uuidv4' ] }).required(),
+        },
+      });
+      const data = Object.assign({}, {
+        params: ctx.params,
+        query: ctx.query,
+        body: ctx.request.body,
+      });
+      ctx.body = data;
+    } catch (err) {
+      ctx.body = JSON.parse(err.message);
+    }
+  }
+```
 <!-- example here -->
 
 ## Questions & Suggestions
