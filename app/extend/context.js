@@ -11,7 +11,6 @@ module.exports = {
    * @param  {Object} ctx - validate target, default to `this.request.body`
    */
   validateJoi(schema, ctx) {
-   
     // data = data || this.request.body;
     // const errors = this.app.validator.validate(schema, data);
     // if (errors) {
@@ -40,7 +39,7 @@ module.exports = {
     //   ctx.error(error, 400)
     // }
     console.log('joi start');
-    const { error, value } = Joi.validate(toValidate, schema);
+    const { error } = Joi.validate(toValidate, schema);
     if (error) {
       const details = error && error.details || [];
       const failures = [];
