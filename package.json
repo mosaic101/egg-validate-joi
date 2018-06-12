@@ -1,6 +1,6 @@
 {
   "name": "egg-validate-joi",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "joi plugin for egg",
   "eggPlugin": {
     "name": "validateJoi"
@@ -8,7 +8,9 @@
   "keywords": [
     "egg",
     "eggPlugin",
-    "egg-plugin"
+    "egg-plugin",
+    "joi",
+    "egg-validate-joi"
   ],
   "dependencies": {
     "joi": "^13.4.0"

@@ -29,7 +29,8 @@ module.exports = joiOptions => {
           // });
         }
         debug(failures);
-        throw new Error(JSON.stringify(failures));
+        // throw new Error(JSON.stringify(failures));
+        return failures;
       }
     };
     await next();

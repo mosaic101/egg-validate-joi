@@ -23,6 +23,8 @@
 <!--
 Description here.
 -->
+joi plugin for egg.
+[joi-api](https://github.com/hapijs/joi/blob/v13.4.0/API.md).
 
 ## Install
 
@@ -42,28 +44,83 @@ exports.validateJoi = {
 
 ## Configuration
 
+[options-config](https://github.com/hapijs/joi/blob/v13.4.0/API.md#validatevalue-schema-options-callback)
 ```js
 // {app_root}/config/config.default.js
 exports.validateJoi = {
   options: {
-    abortEarly: false,
+    abortEarly: false, // when true, stops validation on the first error, otherwise returns all the errors found. Defaults to true.
   },
 };
-
+```
 or
-
+```js
 config.validateJoi = {
   options: {
     abortEarly: false,
   },
 };
 ```
-
 see [config/config.default.js](config/config.default.js) for more detail.
 
 ## Example
 
+// {app_root}/app/router.js
+```js
+module.exports = app => {
+  const { router, controller } = app;
+  router.post('/', controller.home.create);
+  router.post('/:id/topics', controller.home.createTopic);
+};
+```
+
+// {app_root}/app/controller/home.js
+```js
+async create() {
+  const { ctx, app } = this;
+  const { Joi } = app;
+  const errors = ctx.validateJoi({
+    body: {
+      id: Joi.string().guid({ version: [ 'uuidv4' ] }).required(),
+      name: Joi.string().required(),
+      email: Joi.string().email().required(),
+    },
+  });
+  if (errors) console.log(errors);
+  // if errors exist, errors is object, for example:
+  // errors: {
+  //   'body.id': '"id" must be a valid GUID',
+  //   'body.name': '"name" must be a string',
+  //   'body.email': '"email" must be a valid email',
+  // }
+
+}
+
+async createTopic() {
+  const { ctx, app } = this;
+  const { Joi } = app;
+  const errors = ctx.validateJoi({
+    params: {
+      id: Joi.string().guid({ version: [ 'uuidv4' ] }).required(),
+    },
+    body: {
+      topicId: Joi.string().guid({ version: [ 'uuidv4' ] }).required(),
+      name: Joi.string().required(),
+    },
+  });
+  if (errors) console.log(errors);
+  // if errors exist, errors is object, for example:
+  // errors: {
+  //   'params.id': '"id" must be a valid GUID',
+  //   'body.topicId': '"id" must be a valid GUID',
+  //   'body.name': '"name" must be a string',
+  // }
+}
+```
 <!-- example here -->
+
+## Add Rules
+developing~~~
 
 ## Questions & Suggestions
 

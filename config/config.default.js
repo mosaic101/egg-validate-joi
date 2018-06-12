@@ -7,6 +7,6 @@
  */
 exports.validateJoi = {
   options: {
-    abortEarly: false,
+    abortEarly: false, // when true, stops validation on the first error, otherwise returns all the errors found. Defaults to true.
   },
 };
