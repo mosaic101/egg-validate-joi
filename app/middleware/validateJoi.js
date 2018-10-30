@@ -17,9 +17,16 @@ module.exports = joiOptions => {
           toValidate[key] = ctx[key];
         }
       });
-      const { error } = Joi.validate(toValidate, schema, options);
-      if (error) {
-        const details = error.details || [];
+      const result = Joi.validate(toValidate, schema, options);
+
+      if (options.convert) {
+        ctx.request.body = result.value.body;
+        ctx.query = result.value.query;
+        ctx.params = result.value.params;
+      }
+
+      if (result.error) {
+        const details = result.error.details || [];
         const failures = {};
         for (const detail of details) {
           failures[detail.path.join('.')] = detail.message;
