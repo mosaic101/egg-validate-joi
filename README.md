@@ -120,7 +120,7 @@ async createTopic() {
 <!-- example here -->
 
 ## Add Rules
-developing~~~
+developing~~~  (welcome to PR)
 
 ## Questions & Suggestions
 
