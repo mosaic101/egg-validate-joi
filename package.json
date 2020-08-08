@@ -13,6 +13,7 @@
     "egg-validate-joi"
   ],
   "dependencies": {
+    "@types/joi": "^13.4.0",
     "joi": "^13.4.0"
   },
   "devDependencies": {
@@ -39,9 +40,10 @@
     "autod": "autod"
   },
   "files": [
-    "app.js",
     "app",
-    "config"
+    "config",
+    "app.js",
+    "index.d.ts"
   ],
   "ci": {
     "version": "8, 9"
