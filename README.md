@@ -23,7 +23,7 @@
 <!--
 Description here.
 -->
-joi plugin for egg.
+joi plugin for egg. 支持params、query、body 参数校验，更友好的 error 提示
 [joi-api](https://github.com/hapijs/joi/blob/v13.4.0/API.md).
 
 ## Install
