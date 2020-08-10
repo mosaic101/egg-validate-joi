@@ -23,28 +23,41 @@
 <!--
 Description here.
 -->
-joi plugin for egg. 支持params、query、body 参数校验，更友好的 error 提示
-[joi-api](https://github.com/hapijs/joi/blob/v13.4.0/API.md).
+egg 版 joi 插件. 支持params、query、body 参数校验，更友好的 error 提示。需要更新请提issues
 
-## Install
+[joi-api@13.4.0](https://github.com/hapijs/joi/blob/v13.4.0/API.md)
 
+## 依赖说明
+
+### 依赖的 egg 版本
+
+egg-validate-joi 版本 | egg 2.x
+--- | ---
+2.x | 😁
+1.x | ❌
+0.x | ❌
+
+### 依赖的插件
+- [joi](https://github.com/hapijs/joi)
+
+## 安装
 ```bash
 $ npm i egg-validate-joi --save
 ```
 
-## Usage
+## 开启插件
 
 ```js
-// {app_root}/config/plugin.js
+// config/plugin.js
 exports.validateJoi = {
   enable: true,
   package: 'egg-validate-joi',
 };
 ```
 
-## Configuration
+## 详细配置
 
-[options-config](https://github.com/hapijs/joi/blob/v13.4.0/API.md#validatevalue-schema-options-callback)
+[options配置参数选项](https://github.com/hapijs/joi/blob/v13.4.0/API.md#validatevalue-schema-options-callback)
 ```js
 // {app_root}/config/config.default.js
 exports.validateJoi = {
@@ -61,9 +74,9 @@ config.validateJoi = {
   },
 };
 ```
-see [config/config.default.js](config/config.default.js) for more detail.
+请到 [config/config.default.js](config/config.default.js) 查看详细配置项说明。
 
-## Example
+## 使用例子
 
 // {app_root}/app/router.js
 ```js
@@ -117,14 +130,13 @@ async createTopic() {
   // }
 }
 ```
-<!-- example here -->
+## 单元测试
 
-## Add Rules
-developing~~~  (welcome to PR)
+<!-- 描述如何在单元测试中使用此插件，例如 schedule 如何触发。无则省略。-->
 
-## Questions & Suggestions
+## 提问交流
 
-Please open an issue [here](https://github.com/mosaic101/egg-validate-joi/issues).
+请到 [egg issues](https://github.com/mosaic101/egg-validate-joi/issues) 异步交流。
 
 ## License
 
